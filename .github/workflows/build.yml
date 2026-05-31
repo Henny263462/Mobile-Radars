@@ -1,0 +1,66 @@
+name: build
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: .
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "21"
+          cache: gradle
+
+      - name: Validate Gradle Wrapper
+        uses: gradle/wrapper-validation-action@v2
+
+      - name: Fetch lib dependencies (Modrinth)
+        run: |
+          set -euo pipefail
+          RADAR_VER=$(grep '^radar_compat_version=' gradle.properties | cut -d= -f2 | tr -d '\r')
+          CBC_JAR=$(grep '^cbc_jar_name=' gradle.properties | cut -d= -f2 | tr -d '\r')
+          RADAR_FILE="create_radar-${RADAR_VER}.jar"
+          mkdir -p lib
+          fetch_modrinth_jar() {
+            local project="$1"
+            local filename="$2"
+            local dest="lib/${filename}"
+            if [ -f "$dest" ]; then
+              echo "Already present: $dest"
+              return 0
+            fi
+            local url
+            url=$(curl -fsSL "https://api.modrinth.com/v2/project/${project}/version" \
+              | jq -r --arg f "$filename" '[.[] | .files[] | select(.filename == $f) | .url][0]')
+            if [ -z "$url" ] || [ "$url" = "null" ]; then
+              echo "::error::Could not find ${filename} on Modrinth project ${project}."
+              echo "Place the file in lib/ manually (see lib/README.md)."
+              exit 1
+            fi
+            curl -fsSL "$url" -o "$dest"
+            echo "Downloaded $dest"
+          }
+          fetch_modrinth_jar "create-radars" "$RADAR_FILE"
+          fetch_modrinth_jar "create-big-cannons" "$CBC_JAR"
+
+      - name: Build
+        run: chmod +x ./gradlew && ./gradlew build --no-daemon
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: create-radar-mobile-radars
+          path: build/libs/*.jar
+          if-no-files-found: error

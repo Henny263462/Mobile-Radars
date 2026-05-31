@@ -1,0 +1,151 @@
+plugins {
+    id 'java'
+    id 'net.neoforged.moddev' version '2.0.80'
+    id 'idea'
+}
+
+import org.gradle.api.file.DuplicatesStrategy
+
+version = mod_version
+group = mod_group_id
+
+base {
+    archivesName = mod_id
+}
+
+java.toolchain.languageVersion = JavaLanguageVersion.of(21)
+
+repositories {
+    mavenLocal()
+    maven { url = "https://jm.gserv.me/repository/maven-public/" }
+    maven { url = "https://cursemaven.com" }
+    maven { url = "https://maven.createmod.net" }
+    maven { url = "https://maven.ithundxr.dev/snapshots" }
+    maven {
+        name = "BlameJared"
+        url = "https://maven.blamejared.com"
+    }
+    maven {
+        name = "RyanHCode Maven"
+        url = "https://maven.ryanhcode.dev/releases"
+    }
+    exclusiveContent {
+        forRepository {
+            maven {
+                name = "Modrinth"
+                url = "https://api.modrinth.com/maven"
+            }
+        }
+        filter {
+            includeGroup "maven.modrinth"
+        }
+    }
+    maven {
+        name = "Valkyrien Skies"
+        url = "https://maven.valkyrienskies.org"
+    }
+    flatDir {
+        dirs 'lib'
+    }
+}
+
+// Standalone repo: place matching JARs in `lib/` (see lib/README.md).
+def radarJar = file("lib/create_radar-${radar_compat_version}.jar")
+def cbcJar = file("lib/${cbc_jar_name}")
+
+neoForge {
+    version = project.neo_version
+
+    parchment {
+        mappingsVersion = project.parchment_mappings_version
+        minecraftVersion = project.parchment_minecraft_version
+    }
+
+    runs {
+        client {
+            client()
+            systemProperty 'neoforge.enabledGameTestNamespaces', project.mod_id
+        }
+        server {
+            server()
+            systemProperty 'neoforge.enabledGameTestNamespaces', project.mod_id
+        }
+        configureEach {
+            systemProperty 'forge.logging.markers', 'REGISTRIES'
+        }
+    }
+
+    mods {
+        "${mod_id}" {
+            sourceSet sourceSets.main
+        }
+    }
+}
+
+dependencies {
+    compileOnly(files(radarJar))
+    runtimeOnly(files(radarJar))
+
+    compileOnly("org.valkyrienskies.core:api:${vs_core_version}") { transitive = false }
+    compileOnly("org.valkyrienskies.core:impl:${vs_core_version}") { transitive = false }
+    compileOnly("org.valkyrienskies.core:util:${vs_core_version}") { transitive = false }
+    compileOnly("org.valkyrienskies:valkyrienskies-120-forge:${vs2_version}") { transitive = false }
+    runtimeOnly("org.valkyrienskies:valkyrienskies-120-forge:${vs2_version}") { transitive = false }
+
+    compileOnly("foundry.veil:veil-neoforge-${project.minecraft_version}:${veil_version}") {
+        exclude group: "maven.modrinth"
+    }
+    runtimeOnly("foundry.veil:veil-neoforge-${project.minecraft_version}:${veil_version}")
+
+    compileOnly("dev.ryanhcode.sable:sable-neoforge-${minecraft_version}:${sable_version}") {
+        exclude group: "foundry.veil"
+    }
+    runtimeOnly("dev.ryanhcode.sable:sable-neoforge-${minecraft_version}:${sable_version}") {
+        exclude group: "foundry.veil"
+    }
+
+    compileOnly("com.simibubi.create:create-${minecraft_version}:${create_version}:slim") { transitive = false }
+    runtimeOnly("com.simibubi.create:create-${minecraft_version}:${create_version}") { transitive = false }
+    compileOnly("net.createmod.ponder:ponder-neoforge:${ponder_version}+mc${minecraft_version}")
+    runtimeOnly("net.createmod.ponder:ponder-neoforge:${ponder_version}+mc${minecraft_version}")
+    compileOnly("dev.engine-room.flywheel:flywheel-neoforge-api-${minecraft_version}:${flywheel_version}")
+    runtimeOnly("dev.engine-room.flywheel:flywheel-neoforge-${minecraft_version}:${flywheel_version}")
+    compileOnly("com.tterrag.registrate:Registrate:${registrate_version}")
+    runtimeOnly("com.tterrag.registrate:Registrate:${registrate_version}")
+
+    implementation("maven.modrinth:rpl:${rpl_version}") {
+        transitive = false
+    }
+
+    compileOnly(files(cbcJar))
+    runtimeOnly(files(cbcJar))
+
+    jarJar(api("dev.ryanhcode.sable-companion:sable-companion-common-${minecraft_version}:${sable_companion_version}"))
+
+    annotationProcessor "org.spongepowered:mixin:0.8.5:processor"
+}
+
+tasks.withType(ProcessResources).configureEach {
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+    var replaceProperties = [
+            minecraft_version      : minecraft_version,
+            minecraft_version_range: minecraft_version_range,
+            neo_version            : neo_version,
+            neo_version_range      : neo_version_range,
+            loader_version_range   : loader_version_range,
+            mod_id                 : mod_id,
+            mod_name               : mod_name,
+            mod_license            : mod_license,
+            mod_version            : mod_version,
+            mod_authors            : mod_authors,
+            mod_description        : mod_description
+    ]
+    inputs.properties replaceProperties
+    filesMatching(['META-INF/neoforge.mods.toml']) {
+        expand replaceProperties
+    }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}

@@ -1,0 +1,94 @@
+name: Bug report
+description: Crashes or wrong behaviour with Create Radar — Mobile Radars.
+title: "[Bug] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting. For **crashes** or errors, attach **`crash-reports/crash-*.txt`** or **`logs/latest.log`** from the run where it happened.
+
+  - type: input
+    id: versions-mc
+    attributes:
+      label: Minecraft version
+      placeholder: e.g. 1.21.1
+    validations:
+      required: true
+
+  - type: input
+    id: versions-loader
+    attributes:
+      label: Loader & version
+      placeholder: e.g. NeoForge 21.1.228
+    validations:
+      required: true
+
+  - type: textarea
+    id: versions-mods
+    attributes:
+      label: Mod list / versions
+      description: Include **Mobile Radars**, **Create Radars**, **Create**, and **Create Big Cannons** — exact JAR file names help.
+      placeholder: |
+        create_radar_mobile_radars-…
+        create_radar-…
+        create-…
+        createbigcannons-…
+    validations:
+      required: true
+
+  - type: dropdown
+    id: item
+    attributes:
+      label: Which item or feature?
+      options:
+        - Radar tablet (pairing / HUD)
+        - Radar goggles (deploy, optics, aim modes)
+        - Networking / trunk pairing
+        - Not sure
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: What went wrong?
+      description: What did you expect, and what happened instead?
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. …
+        2. …
+        3. …
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs or crash report
+      description: Paste a gist link or attach files. Keep stack traces intact.
+
+  - type: dropdown
+    id: sable
+    attributes:
+      label: Reproduces without **Sable**?
+      options:
+        - "Yes"
+        - "No"
+        - "Not tested / not using Sable"
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Confirm
+      options:
+        - label: I searched existing issues for duplicates.
+          required: true

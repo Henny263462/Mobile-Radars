@@ -1,0 +1,53 @@
+name: Compatibility / mod interaction
+description: Problems that only appear with another mod or a specific mod pack.
+title: "[Compat] "
+labels: ["compatibility"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this when another mod (or pack) is involved — mixin clashes, load failures, broken HUD, etc.
+        For generic bugs, use **Bug report** instead.
+
+  - type: input
+    id: other-mod
+    attributes:
+      label: Other mod(s) involved
+      placeholder: e.g. ModName 1.2.3 (+ link if obscure)
+    validations:
+      required: true
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: Full environment
+      description: Minecraft, NeoForge, and a minimal mod list (or pack name + version).
+    validations:
+      required: true
+
+  - type: textarea
+    id: behaviour
+    attributes:
+      label: What breaks?
+      description: Symptom, log snippet, or crash excerpt.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: minimal
+    attributes:
+      label: Reproduces with only Create + Radars + Mobile Radars + the named mod?
+      options:
+        - "Yes — minimal instance"
+        - "No — only in my full pack"
+        - "Not tested yet"
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Confirm
+      options:
+        - label: I checked for an existing compatibility issue.
+          required: true

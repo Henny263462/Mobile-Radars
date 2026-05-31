@@ -1,0 +1,29 @@
+{
+    "targets": [
+        "swap"
+    ],
+    "passes": [
+        {
+            "name": "create_radar_mobile_radars:radar_vision",
+            "intarget": "minecraft:main",
+            "outtarget": "swap",
+            "uniforms": []
+        },
+        {
+            "name": "minecraft:blit",
+            "intarget": "swap",
+            "outtarget": "minecraft:main",
+            "uniforms": [
+                {
+                    "name": "ColorModulate",
+                    "values": [
+                        1.0,
+                        1.0,
+                        1.0,
+                        1.0
+                    ]
+                }
+            ]
+        }
+    ]
+}

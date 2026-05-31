@@ -1,0 +1,60 @@
+modLoader = "javafml"
+loaderVersion = "${loader_version_range}"
+license = "${mod_license}"
+
+[[mods]]
+modId = "${mod_id}"
+version = "${mod_version}"
+displayName = "${mod_name}"
+authors = "${mod_authors}"
+description = '''${mod_description}'''
+logoFile = "logo.png"
+
+[[dependencies.create_radar_mobile_radars]]
+modId = "neoforge"
+type = "required"
+versionRange = "${neo_version_range}"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.create_radar_mobile_radars]]
+modId = "minecraft"
+type = "required"
+versionRange = "${minecraft_version_range}"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.create_radar_mobile_radars]]
+modId = "create_radar"
+type = "required"
+versionRange = "[0.4.4,)"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies.create_radar_mobile_radars]]
+modId = "create"
+type = "required"
+versionRange = "[6.0.10,6.1.0)"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies.create_radar_mobile_radars]]
+modId = "createbigcannons"
+type = "required"
+versionRange = "[5.11.2,)"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies.create_radar_mobile_radars]]
+modId = "valkyrienskies"
+type = "optional"
+versionRange = "[2.4.7,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.create_radar_mobile_radars]]
+modId = "sable"
+type = "optional"
+versionRange = "[1.2,)"
+ordering = "NONE"
+side = "BOTH"

@@ -1,0 +1,39 @@
+{
+  "item.create_radar_mobile_radars.mobile_radar_tablet": "Radar Tablet",
+  "item.create_radar_mobile_radars.mobile_radar_tablet.tooltip_bound": "Linked trunk: (%s, %s, %s)",
+  "item.create_radar_mobile_radars.mobile_radar_tablet.tooltip_unbound": "Pair at a radar network trunk block.",
+  "item.create_radar_mobile_radars.mobile_radar_tablet.tooltip_help": "Trunk: right-click block • HUD: right-click air • Shift+right-click: clear pairing",
+
+  "item.create_radar_mobile_radars.radar_goggles": "Radar Goggles",
+  "item.create_radar_mobile_radars.radar_goggles.tooltip_bound": "Linked trunk: (%s, %s, %s)",
+  "item.create_radar_mobile_radars.radar_goggles.tooltip_unbound": "Pair at a radar network trunk block.",
+  "item.create_radar_mobile_radars.radar_goggles.tooltip_help": "Trunk: right-click block • Optics: right-click • Stow: shift+right-click • G aim mode • Left-click target • Z zoom • Unpair: shift+RC (stowed)",
+  "item.create_radar_mobile_radars.radar_goggles.tooltip_deployed": "Optics deployed",
+  "item.create_radar_mobile_radars.radar_goggles.tooltip_stowed": "Optics stowed",
+
+  "create_radar_mobile_radars.message.tablet_bound": "Tablet paired with network trunk.",
+  "create_radar_mobile_radars.message.goggles_bound": "Goggles paired with network trunk.",
+  "create_radar_mobile_radars.message.binding_cleared": "Trunk pairing cleared for this item.",
+  "create_radar_mobile_radars.message.tablet_bind_filter_first": "Right-click a network trunk block first.",
+  "create_radar_mobile_radars.message.goggles_deployed": "Radar optics deployed.",
+  "create_radar_mobile_radars.message.goggles_stowed": "Radar optics stowed.",
+
+  "create_radar_mobile_radars.screen.portable_radar.title": "Handheld Radar Display",
+  "create_radar_mobile_radars.screen.portable_radar.loading": "Receiving…",
+  "create_radar_mobile_radars.screen.portable_radar.out_of_range": "Out of range — offline.",
+
+  "create_radar_mobile_radars.overlay.radar_vision_header": "RADAR • %1$s • Aim %2$s • %3$s",
+  "create_radar_mobile_radars.overlay.radar_goggles_controls": "G aim mode: %1$s • Shift+RC: stow optics • RC: clear target",
+  "create_radar_mobile_radars.overlay.aim_mode_switched": "Aim mode: %s",
+  "create_radar_mobile_radars.overlay.hover_info": "%1$s — %2$s",
+  "create_radar_mobile_radars.overlay.lock_acquired": "Target locked",
+  "create_radar_mobile_radars.overlay.cooldown_blocked": "Optics resyncing…",
+
+  "create_radar_mobile_radars.aim_mode.manual": "Manual",
+  "create_radar_mobile_radars.aim_mode.snap": "Snap",
+  "create_radar_mobile_radars.aim_mode.assist": "Assist",
+
+  "key.categories.create_radar_mobile_radars": "Create Radar: Mobile Radars",
+  "key.create_radar_mobile_radars.radar_mode_cycle": "Cycle radar aim mode",
+  "key.create_radar_mobile_radars.radar_zoom": "Radar optics zoom"
+}

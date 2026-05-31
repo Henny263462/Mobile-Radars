@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Create Radars (core mod)
+    url: https://www.curseforge.com/minecraft/mc-mods/create-radars
+    about: Download the core mod and report issues that are not specific to Mobile Radars.
+  - name: Discord (discussion & support)
+    url: https://discord.gg/Cyp7GnSCZG
+    about: Chat with the community before opening an issue.

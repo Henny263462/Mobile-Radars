@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "create_radar_mobile_radars:item/mobile_radar_tablet"
+  }
+}

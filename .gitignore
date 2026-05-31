@@ -1,0 +1,17 @@
+.gradle/
+build/
+out/
+run/
+eclipse/
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
+
+# Redistribution: keep only this readme; drop API JARs here locally
+lib/*.jar
+!lib/README.md
+
+.DS_Store
+Thumbs.db

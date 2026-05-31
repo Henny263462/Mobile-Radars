@@ -1,0 +1,51 @@
+name: Feature request
+description: Suggest an improvement for the tablet, goggles, or portable radar UX.
+title: "[Feature] "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Ideas are welcome. A short note on **why** the change helps gameplay or UX makes triage easier.
+
+  - type: dropdown
+    id: scope
+    attributes:
+      label: Scope
+      options:
+        - Radar tablet
+        - Radar goggles
+        - Both / shared systems
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem or gap
+      description: What is missing, confusing, or frustrating today?
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+      description: How should it work? References to in-game or real-world systems are fine.
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: Optional.
+
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Confirm
+      options:
+        - label: I searched existing issues (open and closed) for similar requests.
+          required: true

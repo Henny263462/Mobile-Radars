@@ -1,0 +1,39 @@
+{
+  "item.create_radar_mobile_radars.mobile_radar_tablet": "Radar-Tablet",
+  "item.create_radar_mobile_radars.mobile_radar_tablet.tooltip_bound": "Gekoppelter Trunk: (%s, %s, %s)",
+  "item.create_radar_mobile_radars.mobile_radar_tablet.tooltip_unbound": "Am Radar-Netzwerk-Trunk koppeln.",
+  "item.create_radar_mobile_radars.mobile_radar_tablet.tooltip_help": "Trunk: Rechtsklick • HUD: Rechtsklick (Luft) • Shift+Rechtsklick: Kopplung lösen",
+
+  "item.create_radar_mobile_radars.radar_goggles": "Radar-Brille",
+  "item.create_radar_mobile_radars.radar_goggles.tooltip_bound": "Gekoppelter Trunk: (%s, %s, %s)",
+  "item.create_radar_mobile_radars.radar_goggles.tooltip_unbound": "Am Radar-Netzwerk-Trunk koppeln.",
+  "item.create_radar_mobile_radars.radar_goggles.tooltip_help": "Trunk: Rechtsklick • Optik: Rechtsklick • Einklappen: Shift+Rechtsklick • G Zielmodus • Linksklick Ziel • Z Zoom • Entkoppeln: Shift+RC (eingeklappt)",
+  "item.create_radar_mobile_radars.radar_goggles.tooltip_deployed": "Optik ausgeklappt",
+  "item.create_radar_mobile_radars.radar_goggles.tooltip_stowed": "Optik eingeklappt",
+
+  "create_radar_mobile_radars.message.tablet_bound": "Tablet mit Netzwerk-Trunk gekoppelt.",
+  "create_radar_mobile_radars.message.goggles_bound": "Brille mit Netzwerk-Trunk gekoppelt.",
+  "create_radar_mobile_radars.message.binding_cleared": "Kopplung an diesem Gegenstand entfernt.",
+  "create_radar_mobile_radars.message.tablet_bind_filter_first": "Zuerst einen Netzwerk-Trunk-Block rechtsklicken.",
+  "create_radar_mobile_radars.message.goggles_deployed": "Radar-Optik ausgeklappt.",
+  "create_radar_mobile_radars.message.goggles_stowed": "Radar-Optik eingeklappt.",
+
+  "create_radar_mobile_radars.screen.portable_radar.title": "Tragbarer Radar-Schirm",
+  "create_radar_mobile_radars.screen.portable_radar.loading": "Empfang…",
+  "create_radar_mobile_radars.screen.portable_radar.out_of_range": "Außerhalb der Reichweite — offline.",
+
+  "create_radar_mobile_radars.overlay.radar_vision_header": "RADAR • %1$s • Ziel %2$s • %3$s",
+  "create_radar_mobile_radars.overlay.radar_goggles_controls": "G Zielmodus: %1$s • Shift+RC: Optik einklappen • RC: Ziel lösen",
+  "create_radar_mobile_radars.overlay.aim_mode_switched": "Zielmodus: %s",
+  "create_radar_mobile_radars.overlay.hover_info": "%1$s — %2$s",
+  "create_radar_mobile_radars.overlay.lock_acquired": "Ziel fixiert",
+  "create_radar_mobile_radars.overlay.cooldown_blocked": "Optik synchronisiert…",
+
+  "create_radar_mobile_radars.aim_mode.manual": "Manuell",
+  "create_radar_mobile_radars.aim_mode.snap": "Einrasten",
+  "create_radar_mobile_radars.aim_mode.assist": "Assist",
+
+  "key.categories.create_radar_mobile_radars": "Create Radar: Mobile Radars",
+  "key.create_radar_mobile_radars.radar_mode_cycle": "Radar-Zielmodus wechseln",
+  "key.create_radar_mobile_radars.radar_zoom": "Radar-Optik: Zoom"
+}
