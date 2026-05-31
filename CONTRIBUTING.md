@@ -19,7 +19,7 @@ Output: `build/libs/create_radar_mobile_radars-<version>.jar`
 ## Issues & pull requests
 
 - **Bugs, features, compatibility:** use [GitHub Issues](https://github.com/Arsenalists-of-Create/Create-Radar/issues) with the templates under [`.github/ISSUE_TEMPLATE/`](.github/ISSUE_TEMPLATE/) when this folder is the project root, or pick **Mobile Radars** in the monorepo templates.
-- **Chat:** [Discord](https://discord.gg/Cyp7GnSCZG).
+- **Security:** report via [GitHub Security Advisories](https://github.com/Arsenalists-of-Create/Create-Radar/security/advisories/new) on the [core Create Radars repository](https://github.com/Arsenalists-of-Create/Create-Radar) — not public issues.
 - Keep PRs focused; fill in the [pull request template](.github/pull_request_template.md) with versions you tested.
 
 ## Code style

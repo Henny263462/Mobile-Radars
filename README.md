@@ -4,7 +4,9 @@
 [![Minecraft](https://img.shields.io/badge/Minecraft-1.21.1-green.svg)](https://www.minecraft.net/)
 [![NeoForge](https://img.shields.io/badge/NeoForge-21.1+-orange.svg)](https://neoforged.net/)
 
-NeoForge add-on for **Minecraft 1.21.1** that extends **[Create: Radars](https://www.curseforge.com/minecraft/mc-mods/create-radars)** with portable radar tools: a **radar tablet** with a HUD and **radar goggles** with tactical optics, aim modes, and zoom.
+NeoForge add-on for **Minecraft 1.21.1** that extends **[Create: Radars](https://github.com/Arsenalists-of-Create/Create-Radar)** with portable radar tools: a **radar tablet** with a HUD and **radar goggles** with tactical optics, aim modes, and zoom.
+
+Requires the [core Create Radars mod](https://github.com/Arsenalists-of-Create/Create-Radar) (download also on [CurseForge](https://www.curseforge.com/minecraft/mc-mods/create-radars)).
 ![Mod logo](src/main/resources/logo.png)
 
 Both items appear in the **Create: Radars** creative tab (alongside the other radar blocks).
@@ -74,20 +76,8 @@ Artifact: `build/libs/create_radar_mobile_radars-<version>.jar`
 ## Contributing
 
 See [CONTRIBUTING.md](CONTRIBUTING.md). Please use the [issue templates](.github/ISSUE_TEMPLATE/) for bugs, features, and compatibility reports.
-## Assets
 
-Item textures live in:
-
-- `src/main/resources/assets/create_radar_mobile_radars/textures/item/mobile_radar_tablet.png`
-- `src/main/resources/assets/create_radar_mobile_radars/textures/item/radar_goggles.png`
-
-## Project layout (brief)
-
-- `item/` — tablet & goggles
-- `client/` — HUD, optics shader, target acquisition
-- `network/` — sync with the radar network
-- `registry/` — items & Create: Radars creative tab entries
-- `util/` — trunk pairing, goggles state, client bridge
+For **security-sensitive** reports, use the [Create-Radar security advisories](https://github.com/Arsenalists-of-Create/Create-Radar/security/advisories/new) on the core repository — do not open a public issue.
 
 ## License
 
